@@ -1,5 +1,6 @@
 package com.aspi.restauranteapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.FutureOrPresent;
@@ -28,10 +29,8 @@ public class Reserva {
      * Una mesa puede tener múltiples reservas
      */
     @ManyToOne(targetEntity = Mesa.class)
-    @JsonIgnore
     private Mesa mesa;
     @ManyToOne(targetEntity = Cliente.class)
-    @JsonIgnore
     private Cliente cliente;
 
     public Reserva() {

@@ -19,6 +19,7 @@ public class Cliente {
     @Size(min = 3, message = "El nombre del clienet debe tener al menos 3 caracteres")
     private String name;
     private String phone;
+    @Column(unique = true, nullable = false)
     @Email(message = "El email debe ser de un formato válido")
     private String email;
 

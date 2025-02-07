@@ -1,5 +1,6 @@
 package com.aspi.restauranteapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -11,9 +12,11 @@ public class Mesa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, nullable = false)
     private String number;
     private String description;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "mesa")
+    @JsonIgnore
     private List<Reserva> reservas;
     public Mesa() {}
 
